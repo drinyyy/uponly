@@ -19,6 +19,11 @@ export type LightData = {
 	intensity: number
 }
 
+export type Light3Data = {
+	
+	intensity: number
+}
+
 export type ViewingState = 'ready' | 'viewing' | 'passed'
 
 export class Section extends THREE.Object3D {
@@ -44,7 +49,7 @@ export class Section extends THREE.Object3D {
 
 	public light1Data?: LightData;
 	public light2Data?: LightData;
-
+	public light3Data?: Light3Data;
 	// transforms
 
 	public cameraTransform: CameraTransform = {
@@ -81,6 +86,7 @@ export class Section extends THREE.Object3D {
 	} = {
 			materialType: 'normal',
 			rotateSpeed: 0
+			
 		};
 
 	// camera weight

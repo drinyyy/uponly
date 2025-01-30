@@ -16,6 +16,9 @@ export class Lights {
 	private light2Taraget: THREE.Object3D;
 	private light2Using: boolean = false;
 
+	private light3: THREE.AmbientLight;
+	private light3Using: boolean = false;
+
 
 	private helpers: THREE.DirectionalLightHelper[] = [];
 
@@ -64,6 +67,10 @@ export class Lights {
 		// scene.add( helper );
 		// this.helpers.push( helper );
 
+		this.light3 = new THREE.AmbientLight();
+		this.scene.add(this.light3);
+
+
 		this.animator = window.gManager.animator;
 
 		this.animator.add( {
@@ -102,85 +109,86 @@ export class Lights {
 			easing: ORE.Easings.easeOutCubic,
 		} );
 
+		this.animator.add({
+			name: "light3Intensity",
+			initValue: 0,
+			easing: ORE.Easings.easeOutCubic,
+		});
 	}
 
-	public update( deltaTime: number ) {
-
-		this.light1.position.copy( this.animator.get( 'light1Position' ) || new THREE.Vector3() );
-		this.light1Taraget.position.copy( this.animator.get( 'light1TargetPosition' ) || new THREE.Vector3() );
-		this.light1.intensity = this.animator.get<number>( 'light1Intensity' ) || 0;
-
-		this.light2.position.copy( this.animator.get( 'light2Position' ) || new THREE.Vector3() );
-		this.light2Taraget.position.copy( this.animator.get( 'light2TargetPosition' ) || new THREE.Vector3() );
-		this.light2.intensity = this.animator.get<number>( 'light2Intensity' ) || 0;
-
-		this.helpers.forEach( item => item.update() );
-
+	public update(deltaTime: number) {
+		this.light1.position.copy(this.animator.get("light1Position") || new THREE.Vector3());
+		this.light1Taraget.position.copy(this.animator.get("light1TargetPosition") || new THREE.Vector3());
+		this.light1.intensity = this.animator.get<number>("light1Intensity") || 0;
+	
+		this.light2.position.copy(this.animator.get("light2Position") || new THREE.Vector3());
+		this.light2Taraget.position.copy(this.animator.get("light2TargetPosition") || new THREE.Vector3());
+		this.light2.intensity = this.animator.get<number>("light2Intensity") || 0;
+	
+		this.light3.intensity = this.animator.get<number>("light3Intensity") || 0;
+	
+		this.helpers.forEach((item) => item.update());
 	}
+	
 
-	public changeSection( section: Section ) {
-
-		if ( section.light1Data ) {
-
+	public changeSection(section: Section) {
+		if (section.light1Data) {
 			let lightData = section.light1Data;
-
-			if ( this.light1Using ) {
-
-				this.animator.animate( 'light1Position', lightData.position );
-				this.animator.animate( 'light1TargetPosition', lightData.targetPosition );
-				this.animator.animate( 'light1Intensity', lightData.intensity );
-
+	
+			if (this.light1Using) {
+				this.animator.animate("light1Position", lightData.position);
+				this.animator.animate("light1TargetPosition", lightData.targetPosition);
+				this.animator.animate("light1Intensity", lightData.intensity);
 			} else {
-
-				this.animator.setValue( 'light1Position', lightData.position );
-				this.animator.setValue( 'light1TargetPosition', lightData.targetPosition );
-				this.animator.setValue( 'light1Intensity', lightData.intensity );
-
+				this.animator.setValue("light1Position", lightData.position);
+				this.animator.setValue("light1TargetPosition", lightData.targetPosition);
+				this.animator.setValue("light1Intensity", lightData.intensity);
 			}
-
+	
 			this.light1Using = true;
-
 		} else {
-
-			this.animator.animate( 'light1Intensity', 0, 1, () => {
-
+			this.animator.animate("light1Intensity", 0, 1, () => {
 				this.light1Using = false;
-
-			} );
-
+			});
 		}
-
-		if ( section.light2Data ) {
-
+	
+		if (section.light2Data) {
 			let lightData = section.light2Data;
-
-			if ( this.light2Using ) {
-
-				this.animator.animate( 'light2Position', lightData.position );
-				this.animator.animate( 'light2TargetPosition', lightData.targetPosition );
-				this.animator.animate( 'light2Intensity', lightData.intensity );
-
+	
+			if (this.light2Using) {
+				this.animator.animate("light2Position", lightData.position);
+				this.animator.animate("light2TargetPosition", lightData.targetPosition);
+				this.animator.animate("light2Intensity", lightData.intensity);
 			} else {
-
-				this.animator.setValue( 'light2Position', lightData.position );
-				this.animator.setValue( 'light2TargetPosition', lightData.targetPosition );
-				this.animator.setValue( 'light2Intensity', lightData.intensity );
-
+				this.animator.setValue("light2Position", lightData.position);
+				this.animator.setValue("light2TargetPosition", lightData.targetPosition);
+				this.animator.setValue("light2Intensity", lightData.intensity);
 			}
-
+	
 			this.light2Using = true;
-
 		} else {
-
-			this.animator.animate( 'light2Intensity', 0, 1, () => {
-
+			this.animator.animate("light2Intensity", 0, 1, () => {
 				this.light2Using = false;
-
-			} );
-
+			});
 		}
-
-
+	
+		// Handle light3 (Ambient Light)
+		if (section.light3Data) {
+			let lightData = section.light3Data;
+	
+			if (this.light3Using) {
+				this.animator.animate("light3Intensity", lightData.intensity);
+			} else {
+				this.animator.setValue("light3Intensity", lightData.intensity);
+			}
+	
+			this.light3Using = true;
+		} else {
+			this.animator.animate("light3Intensity", 0, 1, () => {
+				this.light3Using = false;
+			});
+		}
 	}
+	
 
 }

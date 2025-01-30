@@ -8,9 +8,24 @@ varying vec2 vUv;
 #pragma glslify: random = require('./random.glsl' )
 #define linearstep(edge0, edge1, x) min(max(((x) - (edge0)) / ((edge1) - (edge0)), 0.0), 1.0)
 
-void main( void ) {
 
-	vec3 sec1 = hsv2rgb( vec3( vUv.y * 0.3 + time * 0.1 + random( gl_FragCoord.xy * 0.01 ) * 0.05, 0.5, 1.0  ) );
+
+void main( void ) {
+vec3 color1 = vec3(0.318, 0.51, 0.251);
+vec3 color2 = vec3(0.471,0.769,0.475);
+vec3 color3 = vec3(0.224,0.369,0.239); 
+vec3 color4 = vec3(0.404,0.525,0.361);   
+vec3 color5 = vec3(0.761,0.804,0.749);  
+vec3 color6 = vec3(0.227,0.247,0.161);   
+
+// Method 1: Using step-wise mix
+	vec3 sec1 = hsv2rgb(vec3( 
+    0.28 + 0.05 * sin(time) + random(gl_FragCoord.xy * 0.01) * 0.02, 
+    0.5, 
+    1.0 
+));
+
+
 	vec3 sec2 = vec3( 1.0 );
 	vec3 sec3 = vec3( 0.0 );
 	vec3 sec4 = vec3( 1.0 );
