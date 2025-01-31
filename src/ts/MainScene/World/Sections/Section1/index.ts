@@ -72,7 +72,7 @@ export class Section1 extends Section {
 		-------------------------------*/
 
 		this.light1Data = {
-			intensity: 0.6,
+			intensity: 0.5,
 			position: new THREE.Vector3( 1.0, 1.0, 1.0 ),
 			targetPosition: new THREE.Vector3( 0, 0, 0 ),
 		};
@@ -84,7 +84,7 @@ export class Section1 extends Section {
 		};
 
 		this.light3Data = {
-			intensity: 0.4,
+			intensity: 0.2,
 			
 		};
 		

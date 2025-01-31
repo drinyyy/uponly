@@ -48,6 +48,10 @@ export class Section3 extends Section {
 			targetPosition: new THREE.Vector3( 0, - 11.0, 0 ),
 		};
 
+		this.light3Data = {
+			intensity: 0.5,
+			
+		};
 		// cursorLight
 
 		this.cursorLight = new CursorLight();
