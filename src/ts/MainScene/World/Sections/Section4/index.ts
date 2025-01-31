@@ -76,6 +76,11 @@ export class Section4 extends Section {
 			intensity: 0.2
 		};
 
+		this.light3Data = {
+			
+			intensity: 0.2
+		};
+
 	}
 
 	protected onLoadedGLTF( gltf: GLTF ): void {

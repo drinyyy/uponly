@@ -336,7 +336,7 @@ export class Baku extends THREE.Object3D {
 		action.play();
 	  
 		// 3. Transition weights
-		this.animator.animate('BakuWeight/section_4', 0, 0.1); // Fade out preparation
+		
 		this.animator.animate('BakuWeight/section_4_jump', 1.0, 0.1); // Fade in jump
 	  
 		// 4. Set up completion handler
@@ -351,6 +351,7 @@ export class Baku extends THREE.Object3D {
 		  };
 		  this.animationMixer.addEventListener('finished', onFinished);
 		}
+		this.dispatchEvent({ type: 'jump' });
 	  }
 
 	public changeRotateSpeed( speed: number ) {
