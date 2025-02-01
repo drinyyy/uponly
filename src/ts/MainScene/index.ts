@@ -6,7 +6,7 @@ import { RenderPipeline } from './RenderPipeline';
 import { CameraController } from './CameraController';
 import { World } from './World';
 import { Scroller } from './Scroller';
-import { Subtitles } from './Subtitle';
+
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Loading } from './Loading';
@@ -25,7 +25,7 @@ export class MainScene extends ORE.BaseLayer {
 	// content
 
 	private world?: World;
-	private subtitles: Subtitles;
+
 	private header: Header;
 	private footer: Footer;
 	private loading: Loading;
@@ -76,7 +76,7 @@ export class MainScene extends ORE.BaseLayer {
 
 				let section = this.world.changeSection( sectionIndex );
 
-				this.subtitles.changeSection( sectionIndex );
+			
 
 				if ( this.cameraController ) this.cameraController.changeRange( section.cameraRange );
 
@@ -118,8 +118,6 @@ export class MainScene extends ORE.BaseLayer {
 			Subtitles
 		-------------------------------*/
 
-		this.subtitles = new Subtitles();
-		window.subtitles = this.subtitles;
 
 		/*-------------------------------
 			Header

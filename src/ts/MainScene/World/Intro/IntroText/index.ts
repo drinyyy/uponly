@@ -74,12 +74,7 @@ export class IntroText {
 
 	public async start( unRemovable?: boolean ) {
 
-		setTimeout( () => {
-
-			window.subtitles.show( this.text, 1, 2.0 );
-
-		}, 500 );
-
+		
 		await this.swithVisibility( true );
 
 		await new Promise( ( r ) => {

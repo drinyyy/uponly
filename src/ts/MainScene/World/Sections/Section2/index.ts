@@ -43,12 +43,12 @@ export class Section2 extends Section {
 		this.light1Data = {
 			position: new THREE.Vector3( - 1, 2, 1 ),
 			targetPosition: new THREE.Vector3( 0, 0, 0 ),
-			intensity: 1.3
+			intensity: 1.0
 		};
 
 		this.light3Data = {
 			
-			intensity: 0.5
+			intensity: 0.2
 		};
 
 

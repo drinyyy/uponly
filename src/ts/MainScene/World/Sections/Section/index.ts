@@ -84,7 +84,7 @@ export class Section extends THREE.Object3D {
 		materialType: BakuMaterialType,
 		rotateSpeed: number
 	} = {
-			materialType: 'normal',
+			materialType: 'glass',
 			rotateSpeed: 0
 			
 		};

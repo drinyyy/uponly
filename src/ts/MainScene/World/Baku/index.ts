@@ -32,6 +32,7 @@ export class Baku extends THREE.Object3D {
 
 	private passThrough?: ORE.PostProcessing;
 	public sceneRenderTarget: THREE.WebGLRenderTarget;
+	
 	public onLoaded?: () => void;
 
 	constructor( manager: THREE.LoadingManager, parentUniforms: ORE.Uniforms ) {
@@ -126,7 +127,7 @@ export class Baku extends THREE.Object3D {
 		let loader = new GLTFLoader( this.manager );
 
 		loader.load( './assets/scene/baku.glb', ( gltf ) => {
-
+			console.log("Available Animations:", gltf.animations.map(a => a.name));
 			let bakuWrap = gltf.scene.getObjectByName( "baku_amature" ) as THREE.Object3D;
 
 			this.container.add( bakuWrap );
@@ -330,14 +331,14 @@ export class Baku extends THREE.Object3D {
 		this.jumping = true;
 	  
 		// 2. Configure jump animation
-		let action = this.animationActions["section_4_jump"];
+		let action = this.animationActions["section_4_jumppp"];
 		action.reset();
 		action.loop = THREE.LoopOnce; // Play only once
 		action.play();
 	  
 		// 3. Transition weights
 		
-		this.animator.animate('BakuWeight/section_4_jump', 1.0, 0.1); // Fade in jump
+		this.animator.animate('BakuWeight/section_4_jumppp', 1.0, 0.1); // Fade in jump
 	  
 		// 4. Set up completion handler
 		if (this.animationMixer) {
@@ -345,8 +346,9 @@ export class Baku extends THREE.Object3D {
 			// 5. When jump completes:
 			// - Fade back to preparation animation
 			// - Reset jump state
-			this.animator.animate('BakuWeight/section_4', 1.0, 1.0);
-			this.animator.animate('BakuWeight/section_4_jump', 0.0, 1.0);
+			
+			this.animator.animate('BakuWeight/section_4_jump', 1.0, 0.0);
+			this.animator.animate('BakuWeight/section_4_jumppp', 0.0, 1.0);
 			this.jumping = false;
 		  };
 		  this.animationMixer.addEventListener('finished', onFinished);
