@@ -16,7 +16,7 @@ export class Section6 extends Section {
 	private wind?: Wind;
 	private particle?: Particle;
 	private road?: Road;
-
+	
 	// sp
 
 	private cameraBasePos: THREE.Vector3 | null = null;
@@ -25,7 +25,7 @@ export class Section6 extends Section {
 	// next
 
 	private next: Next;
-
+	
 	constructor( manager: THREE.LoadingManager, parentUniforms: ORE.Uniforms ) {
 
 		super( manager, 'section_6', parentUniforms );
@@ -71,7 +71,7 @@ export class Section6 extends Section {
 		-------------------------------*/
 
 		this.next = new Next();
-
+		
 	}
 
 	protected onLoadedGLTF( gltf: GLTF ): void {
@@ -119,6 +119,8 @@ export class Section6 extends Section {
 		this.wind.quaternion.copy( ( this.getObjectByName( 'Baku' ) as THREE.Object3D ).quaternion );
 		this.wind.position.copy( ( this.getObjectByName( 'Baku' ) as THREE.Object3D ).position );
 		this.wind.rotateY( Math.PI / 2 );
+		this.wind.rotateX( Math.PI  );
+		this.wind.rotateZ( Math.PI / 2 );
 		this.wind.frustumCulled = false;
 		this.wind.switchVisibility( this.sectionVisibility );
 		this.add( this.wind );
@@ -131,6 +133,8 @@ export class Section6 extends Section {
 		this.particle.quaternion.copy( ( this.getObjectByName( 'Baku' ) as THREE.Object3D ).quaternion );
 		this.particle.position.copy( ( this.getObjectByName( 'Baku' ) as THREE.Object3D ).position );
 		this.particle.rotateY( Math.PI / 2 );
+		this.particle.rotateX( Math.PI  );
+		this.particle.rotateZ( Math.PI / 2 );
 		this.particle.switchVisibility( this.sectionVisibility );
 		this.add( this.particle );
 
@@ -158,9 +162,9 @@ export class Section6 extends Section {
 			this.resize( this.info );
 
 		}
-
+		
 	}
-
+	
 	private speed: number = 0.0;
 
 	public wheel( e: WheelEvent ) {

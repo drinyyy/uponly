@@ -2,7 +2,6 @@
   "name": "next.junni.co.jp",
   "version": "1.0.0",
   "description": "",
-  
   "scripts": {
     "dev": "npx gulp",
     "build": "npx gulp build"
@@ -46,6 +45,7 @@
     "@tweakpane/core": "^1.1.0",
     "cannon": "^0.6.2",
     "lethargy": "^1.0.9",
+    "lil-gui": "^0.20.0",
     "three": "^0.145.0",
     "tweakpane": "^3.1.0",
     "wolfy87-eventemitter": "^5.2.9"
