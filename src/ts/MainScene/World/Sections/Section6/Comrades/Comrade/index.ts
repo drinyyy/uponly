@@ -42,7 +42,7 @@ export class Comrade {
 
 		let loader = new THREE.TextureLoader();
 
-		loader.load( './assets/textures/baku/baku_' + colorNum + '.jpg', ( tex ) => {
+		loader.load( './assets/textures/baku/baku_' + colorNum + '.png', ( tex ) => {
 
 			this.commonUniforms.uTex.value = tex;
 

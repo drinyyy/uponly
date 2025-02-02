@@ -474,7 +474,7 @@ void main( void ) {
 	
 	// if( mat.opacity < 0.5 ) discard;
 
-	mat.diffuseColor = mix( mat.albedo, vec3( 0.0, 0.0, 0.0 ), mat.metalness );
+	mat.diffuseColor = mix( mat.albedo, vec3( 0.0, 1.0, 0.0 ), mat.metalness );
 	mat.specularColor = mix( vec3( 1.0, 1.0, 1.0 ), mat.albedo, mat.metalness );
 
 	// output

@@ -127,7 +127,7 @@ export class Baku extends THREE.Object3D {
 		let loader = new GLTFLoader( this.manager );
 
 		loader.load( './assets/scene/baku.glb', ( gltf ) => {
-			console.log("Available Animations:", gltf.animations.map(a => a.name));
+			
 			let bakuWrap = gltf.scene.getObjectByName( "baku_amature" ) as THREE.Object3D;
 
 			this.container.add( bakuWrap );
@@ -242,7 +242,7 @@ export class Baku extends THREE.Object3D {
 	}
 
 	public changeMaterial( type: BakuMaterialType ) {
-
+		
 		this.animator.animate( 'bakuTransparent', type == 'glass' ? 1 : 0, 1 );
 		this.animator.animate( 'bakuLine', type == 'line' ? 1 : 0, 1 );
 		this.animator.animate( 'bakuLine', type == 'line' ? 1 : 0, 1 );

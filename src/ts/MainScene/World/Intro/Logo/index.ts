@@ -17,9 +17,7 @@ export class Logo extends EventEmitter {
 	private layoutController: ORE.LayoutController;
 
 	private logoMesh: THREE.Mesh;
-	private lineMesh: THREE.Mesh;
-	private isMesh: THREE.Mesh;
-	private imagingMesh: THREE.Mesh;
+	
 
 	private canceled: boolean = false;
 
@@ -70,50 +68,14 @@ export class Logo extends EventEmitter {
 
 		// line
 
-		this.lineMesh = this.logoMesh.getObjectByName( 'LogoLine' ) as THREE.Mesh;
-		this.lineMesh.material = new THREE.ShaderMaterial( {
-			fragmentShader: logoIsFrag,
-			vertexShader: logoIsVert,
-			uniforms: ORE.UniformsLib.mergeUniforms( this.commonUniforms, {
-				uNum: {
-					value: 1
-				}
-			} ),
-			transparent: true,
-			defines: {
-				'IS_LINE': ''
-			}
-		} );
-
+		
 		// isMesh
 
-		this.isMesh = this.logoMesh.getObjectByName( 'LogoIs' ) as THREE.Mesh;
-		this.isMesh.material = new THREE.ShaderMaterial( {
-			fragmentShader: logoIsFrag,
-			vertexShader: logoIsVert,
-			uniforms: ORE.UniformsLib.mergeUniforms( this.commonUniforms, {
-				uNum: {
-					value: 2
-				}
-			} ),
-			transparent: true,
-		} );
+		
 
 		// imaging
 
-		this.imagingMesh = this.logoMesh.getObjectByName( 'Imaging' ) as THREE.Mesh;
-
-		let baseMat = this.imagingMesh.material as THREE.MeshStandardMaterial;
-
-		this.imagingMesh.material = new THREE.ShaderMaterial( {
-			fragmentShader: imagingFrag,
-			vertexShader: imagingVert,
-			uniforms: ORE.UniformsLib.mergeUniforms( this.commonUniforms, {
-				uTex: { value: baseMat.map },
-				uNoiseTex: window.gManager.assetManager.getTex( 'noise' ),
-			} ),
-			transparent: true
-		} );
+		
 
 		/*-------------------------------
 			Layout
@@ -128,7 +90,7 @@ export class Logo extends EventEmitter {
 	public update( deltaTime: number ) {
 
 		// this.layoutController.updateTransform( this.animator.get( 'introLogoVisibility' ) || 0 );
-		this.logoMesh.position.x = - ( this.animator.get<number>( 'introLogoImaging' ) || 0 ) * 0.4;
+		this.logoMesh.position.x = - ( this.animator.get<number>( 'introLogoImaging' ) || 0 ) * 0.0;
 
 	}
 
@@ -164,9 +126,8 @@ export class Logo extends EventEmitter {
 		await this.animator.animate( 'introLogoVisibility', 0, 1 );
 
 		this.logoMesh.visible = false;
-		this.isMesh.visible = false;
-		this.lineMesh.visible = false;
-		this.imagingMesh.visible = false;
+	
+		
 
 	}
 

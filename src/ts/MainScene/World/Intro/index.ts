@@ -64,9 +64,7 @@ export class Intro extends EventEmitter {
 			this.skip();
 			this.emitEvent( 'finish' );
 
-			this.text1.swithVisibility( false );
-			this.text2.swithVisibility( false );
-			this.text3.swithVisibility( false );
+			
 
 		} );
 
@@ -141,28 +139,7 @@ export class Intro extends EventEmitter {
 			Layout
 		-------------------------------*/
 
-		this.layoutControllerList.push( new ORE.LayoutController( this.scene.getObjectByName( 'Wave_Left' )!, {
-			position: new THREE.Vector3( 1.7, 0.4, 0.0 )
-		} ) );
-
-		this.layoutControllerList.push( new ORE.LayoutController( this.scene.getObjectByName( 'Cone' )!, {
-			position: new THREE.Vector3( 1.5, - 0.2, 0.0 ),
-			scale: 0.8
-		} ) );
-
-		this.layoutControllerList.push( new ORE.LayoutController( this.scene.getObjectByName( 'Wave_Right' )!, {
-			position: new THREE.Vector3( - 1.5, 0.0, 0.0 ),
-		} ) );
-
-		this.layoutControllerList.push( new ORE.LayoutController( this.scene.getObjectByName( 'Torus' )!, {
-			position: new THREE.Vector3( - 1.5, - 0.5, 0.0 ),
-			scale: 0.6
-		} ) );
-
-		this.layoutControllerList.push( new ORE.LayoutController( this.scene.getObjectByName( 'Cube' )!, {
-			position: new THREE.Vector3( - 1.0, - 0.5, 0.0 ),
-			scale: 0.6
-		} ) );
+		
 
 	}
 
