@@ -132,7 +132,7 @@ export class Section extends THREE.Object3D {
 			// 	}
 			// }
 		} );
-
+		this.bakuParam.materialType = 'dark';
 		/*-------------------------------
 			Load
 		-------------------------------*/

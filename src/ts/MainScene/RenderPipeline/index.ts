@@ -55,6 +55,7 @@ export class RenderPipeline {
 
 		this.animator = window.gManager.animator;
 		this.renderer = renderer;
+		
 		this.bloomResolutionRatio = 0.5;
 		this.bloomRenderCount = 5;
 
@@ -339,7 +340,7 @@ export class RenderPipeline {
 		this.renderer.setRenderTarget( this.renderTargets.rt1 );
 		this.renderer.render( scene, camera );
 		this.renderer.setRenderTarget( renderTargetMem );
-
+		
 		this.renderer.autoClear = true;
 
 		/*------------------------

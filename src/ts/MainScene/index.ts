@@ -259,10 +259,10 @@ export class MainScene extends ORE.BaseLayer {
 			RenderPipeline
 		-------------------------------*/
 
-		if ( this.renderer ) {
+		if ( this.renderer ) {	
 
 			this.renderer.shadowMap.enabled = true;
-
+			console.log(this.renderer)
 			this.renderPipeline = new RenderPipeline( this.renderer, this.commonUniforms );
 
 		}
