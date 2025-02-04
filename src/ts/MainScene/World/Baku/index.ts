@@ -331,14 +331,14 @@ export class Baku extends THREE.Object3D {
 		this.jumping = true;
 	  
 		// 2. Configure jump animation
-		let action = this.animationActions["section_4_jumppp"];
+		let action = this.animationActions["section_4_jump"];
 		action.reset();
 		action.loop = THREE.LoopOnce; // Play only once
 		action.play();
 	  
 		// 3. Transition weights
 		
-		this.animator.animate('BakuWeight/section_4_jumppp', 1.0, 0.1); // Fade in jump
+		this.animator.animate('BakuWeight/section_4_jump', 1.0, 0.1); // Fade in jump
 	  
 		// 4. Set up completion handler
 		if (this.animationMixer) {
@@ -347,8 +347,8 @@ export class Baku extends THREE.Object3D {
 			// - Fade back to preparation animation
 			// - Reset jump state
 			
-			this.animator.animate('BakuWeight/section_4_jump', 1.0, 0.0);
-			this.animator.animate('BakuWeight/section_4_jumppp', 0.0, 1.0);
+			this.animator.animate('BakuWeight/section_4', 1.0, 0.0);
+			this.animator.animate('BakuWeight/section_4_jump', 0.0, 1.0);
 			this.jumping = false;
 		  };
 		  this.animationMixer.addEventListener('finished', onFinished);

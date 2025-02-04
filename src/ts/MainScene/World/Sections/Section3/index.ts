@@ -49,7 +49,7 @@ export class Section3 extends Section {
 		};
 
 		this.light3Data = {
-			intensity: 0.1,
+			intensity: 0.0,
 			
 		};
 		// cursorLight

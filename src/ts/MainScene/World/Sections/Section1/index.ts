@@ -84,7 +84,7 @@ export class Section1 extends Section {
 		};
 
 		this.light3Data = {
-			intensity: 0.5,
+			intensity: 0.1,
 			
 		};
 		
