@@ -351,7 +351,7 @@ export class Baku extends THREE.Object3D {
 			this.animator.animate('BakuWeight/section_4_jump', 0.0, 1.0);
 			this.jumping = false;
 		  };
-		  console.log("finished")
+		  
 		  this.animationMixer.addEventListener('finished', onFinished);
 		}
 		this.dispatchEvent({ type: 'jump' });
