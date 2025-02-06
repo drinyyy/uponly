@@ -1,4 +1,4 @@
-# Junni is
+# Uponly is
 ![]("./../screenshot/screenshot.jpg)
 # Install
 
