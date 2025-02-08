@@ -24,10 +24,8 @@ export class Section4 extends Section {
 
 	private textIndex: number = 0;
 	private textList: string[] = [
-		'uponly',
-		"uponly",
-		"uponly",
-		"uponly"
+		'revolution',
+		"revolution"
 	];
 
 	// layout
